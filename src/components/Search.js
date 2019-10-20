@@ -7,14 +7,15 @@ class Search extends React.Component {
     super(props);
     this.state = {
       query: '',
-      results: {},
+      heroes: [],
+      isSearchable: false,
       loading: false,
       message: ''
     };
     this.cancel = '';
   }
 
-  fetchSearchResults = query => {
+  fetchSearchHeroes = query => {
     const apiKey =
       'dbe0038f839406bd1e69416a03e2d67a&hash=fb974711d8b7728c370ddfe09b191981';
     const APIurl = `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=${apiKey}`;
@@ -29,20 +30,15 @@ class Search extends React.Component {
         cancelToken: this.cancel.token
       })
       .then(res => {
-        const resultNotFoundMessage = !res.data.results.length
-          ? 'There are no more search results'
-          : '';
         this.setState({
-          results: res.data.results,
-          message: resultNotFoundMessage,
+          heroes: res.data.data.results,
           loading: false
         });
       })
       .catch(error => {
         if (axios.isCancel(error) || error) {
           this.setState({
-            loading: false,
-            message: 'Failed to fetch results'
+            loading: false
           });
         }
       });
@@ -53,22 +49,57 @@ class Search extends React.Component {
     this.setState({ query: query });
 
     if (!query) {
-      this.setState({ query, results: {}, message: '' });
-    } else {
-      this.setState({ query, loading: true, message: '' }, () => {
-        this.fetchSearchResults(query);
+      this.setState({
+        query,
+        loading: false,
+        heroes: [],
+        message: '',
+        isSearchable: false
       });
+    } else {
+      this.setState(
+        { query, loading: true, message: '', isSearchable: true },
+        () => {
+          this.fetchSearchHeroes(query);
+        }
+      );
     }
   };
 
-  renderSearchResults = () => {
-    const { results } = this.state;
-    if (Object.keys(results).length && results.length) {
+  renderSearchHeroes = () => {
+    const { heroes, isSearchable, loading } = this.state;
+    if (loading) {
       return (
         <div>
-          {results.map(result => {
-            return <h6>{result.data.results.name}</h6>;
-          })}
+          <h6>loading</h6>
+        </div>
+      );
+    }
+
+    if (isSearchable) {
+      if (Object.keys(heroes).length && heroes.length) {
+        return (
+          <div>
+            {heroes.map(result => {
+              return (
+                <div key={result.id}>
+                  <h6>{result.name}</h6>
+                </div>
+              );
+            })}
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <h6>No results</h6>
+          </div>
+        );
+      }
+    } else {
+      return (
+        <div>
+          <h6>Home page</h6>
         </div>
       );
     }
@@ -88,7 +119,7 @@ class Search extends React.Component {
             placeholder='SEARCH HEROES...'
           />
         </label>
-        {this.renderSearchResults()}
+        {this.renderSearchHeroes()}
       </div>
     );
   }
