@@ -1,0 +1,20 @@
+@font-face {
+  src: url(./Marvel-Regular.ttf);
+  font-family: Marvel;
+}
+
+.container {
+  font-family: Marvel;
+  font-size: 30px;
+  color: white;
+  padding-top: 25px;
+}
+
+.container .search-label {
+  margin-top: 15px;
+}
+
+input {
+  font-family: Marvel;
+  font-size: 30px;
+}
