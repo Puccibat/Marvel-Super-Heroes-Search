@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import './Search.css';
+import '../style/Search.css';
 
 class Search extends React.Component {
   constructor(props) {
@@ -15,7 +15,9 @@ class Search extends React.Component {
   }
 
   fetchSearchResults = query => {
-    const APIurl = `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=dbe0038f839406bd1e69416a03e2d67a&hash=fb974711d8b7728c370ddfe09b191981`;
+    const apiKey =
+      'dbe0038f839406bd1e69416a03e2d67a&hash=fb974711d8b7728c370ddfe09b191981';
+    const APIurl = `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=${apiKey}`;
 
     if (this.cancel) {
       this.cancel.cancel();
