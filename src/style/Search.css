@@ -10,9 +10,13 @@
   padding-top: 25px;
 }
 
-.container .title {
+.container .appTitle {
   color: white;
   font-size: 70px;
+}
+
+.title {
+  color: white;
 }
 
 .button {
@@ -21,7 +25,7 @@
 
 .heroesCards {
   text-transform: uppercase;
-  width: 15rem;
+  width: 12rem;
   max-height: 20rem;
   min-height: 20rem;
   margin-bottom: 20px;
@@ -47,8 +51,4 @@ input {
 
 .homePageImg {
   width: 100%;
-}
-
-.homePageTitle {
-  color: white;
 }

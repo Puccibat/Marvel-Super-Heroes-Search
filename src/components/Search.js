@@ -119,7 +119,8 @@ class Search extends React.Component {
     if (loading) {
       return (
         <div>
-          <h2>LOADING</h2>
+          <h2 className='title'>LOADING</h2>
+          <img src={Marvel} alt='' className='homePageImg' />
         </div>
       );
     }
@@ -160,7 +161,7 @@ class Search extends React.Component {
       } else {
         return (
           <div>
-            <h2>SORRY THERE'S NO RESULTS</h2>
+            <h2 className='title'>SORRY THERE'S NO RESULTS</h2>
             <img src={Deadpool} alt='' className='noResultImg' />
           </div>
         );
@@ -168,7 +169,7 @@ class Search extends React.Component {
     } else {
       return (
         <div>
-          <h2 className='homePageTitle'>HOME PAGE</h2>
+          <h2 className='title'>HOME PAGE</h2>
           <img src={Marvel} alt='' className='homePageImg' />
         </div>
       );
@@ -179,7 +180,7 @@ class Search extends React.Component {
     const { query } = this.state;
     return (
       <div className='container'>
-        <h1 className='title'>MARVEL SUPER-HEROES SEARCH</h1>
+        <h1 className='appTitle'>MARVEL SUPER-HEROES SEARCH</h1>
         <label className='search-label'>
           <input
             type='text'
