@@ -128,10 +128,9 @@ class Search extends React.Component {
                       <Col>
                         <Card className="heroesCards">
                           <Card.Body>
-                            <Card.Img variant="top" src={`${result.thumbnail.path}.${result.thumbnail.extension}`} className="thumbnail" />
+                            <Card.Img variant="top" href="#" src={`${result.thumbnail.path}.${result.thumbnail.extension}`} className="thumbnail" />
                             <Card.Title><h2>{result.name}</h2></Card.Title>
                           </Card.Body>
-                            <Card.Footer><this.detailsButton className="button"/></Card.Footer>
                         </Card>
                       </Col>
                     </div>

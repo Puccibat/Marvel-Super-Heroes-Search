@@ -10,15 +10,19 @@
   padding-top: 25px;
 }
 
+.container .title {
+  color: white;
+}
+
 .button {
-  position: relative;
+  align-items: center;
 }
 
 .heroesCards {
   text-transform: uppercase;
   width: 15rem;
-  max-height: 23rem;
-  min-height: 23rem;
+  max-height: 20rem;
+  min-height: 20rem;
   margin-bottom: 20px;
 }
 
