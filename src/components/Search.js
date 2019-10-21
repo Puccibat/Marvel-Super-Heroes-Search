@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import '../style/Search.css';
-import {Card, Modal, Button, ButtonToolbar} from 'react-bootstrap';
+import {Card, Modal, Button, ButtonToolbar, Container, Row, Col} from 'react-bootstrap';
 
 class Search extends React.Component {
   constructor(props) {
@@ -77,20 +77,14 @@ class Search extends React.Component {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
+            Heroes' name
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
           <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
+          Heroes' description
           </p>
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
       </Modal>
     );
   }
@@ -126,19 +120,25 @@ class Search extends React.Component {
       if (Object.keys(heroes).length && heroes.length) {
         return (
           <div>
-            {heroes.map(result => {
-              return (
-                <div key={result.id}>
-                    <Card className="heroesCards" style={{ width: '15rem' }}>
-                      <Card.Body>
-                        <Card.Img variant="top" src={`${result.thumbnail.path}.${result.thumbnail.extension}`} className="thumbnail" />
-                        <Card.Title><h2>{result.name}</h2></Card.Title>
-                        <this.detailsButton />
-                      </Card.Body>
-                    </Card>
-                </div>
-              );
-            })}
+            <Container>
+              <Row md={4}>
+                {heroes.map(result => {
+                  return (
+                    <div key={result.id}>
+                      <Col>
+                        <Card className="heroesCards">
+                          <Card.Body>
+                            <Card.Img variant="top" src={`${result.thumbnail.path}.${result.thumbnail.extension}`} className="thumbnail" />
+                            <Card.Title><h2>{result.name}</h2></Card.Title>
+                          </Card.Body>
+                            <Card.Footer><this.detailsButton className="button"/></Card.Footer>
+                        </Card>
+                      </Col>
+                    </div>
+                  );
+                })}
+              </Row>
+            </Container>
           </div>
         );
       } else {

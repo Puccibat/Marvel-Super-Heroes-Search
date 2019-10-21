@@ -10,8 +10,20 @@
   padding-top: 25px;
 }
 
+.button {
+  position: relative;
+}
+
 .heroesCards {
   text-transform: uppercase;
+  width: 15rem;
+  max-height: 23rem;
+  min-height: 23rem;
+  margin-bottom: 20px;
+}
+
+.heroesCards h2 {
+  font-size: 20px;
 }
 
 .container .search-label {
