@@ -84,16 +84,12 @@ class Search extends React.Component {
             {heroes.map(result => {
               return (
                 <div key={result.id}>
-                  
                     <Card style={{ width: '15rem' }}>
                       <Card.Body>
                         <Card.Img variant="top" src={`${result.thumbnail.path}.${result.thumbnail.extension}`} />
                         <Card.Title><h6>{result.name}</h6></Card.Title>
-                        <Card.Link href="#">Card Link</Card.Link>
                       </Card.Body>
                     </Card>
-                  
-                  
                 </div>
               );
             })}
