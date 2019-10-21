@@ -1,7 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 import '../style/Search.css';
-import {Card, Modal, Button, ButtonToolbar, Container, Row, Col} from 'react-bootstrap';
+import {
+  Card,
+  Modal,
+  Button,
+  ButtonToolbar,
+  Container,
+  Row,
+  Col
+} from 'react-bootstrap';
+import Deadpool from '../style/deadpool-comics.jpg';
+import Marvel from '../style/avangers.jpg';
 
 class Search extends React.Component {
   constructor(props) {
@@ -67,51 +77,50 @@ class Search extends React.Component {
     }
   };
 
-  heroModal = (props) => {
-  return (
+  heroModal = props => {
+    const { myHero } = this.props;
+    return (
       <Modal
         {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
+        size='lg'
+        aria-labelledby='contained-modal-title-vcenter'
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Heroes' name
+          <Modal.Title id='contained-modal-title-vcenter'>
+            {myHero.name}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>
-          Heroes' description
-          </p>
+          <p>Heroes' description</p>
         </Modal.Body>
       </Modal>
     );
-  }
+  };
 
-  detailsButton = () => {
+  detailsButton = props => {
     const [modalShow, setModalShow] = React.useState(false);
+    const { myHero } = this.props;
     return (
       <ButtonToolbar>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
+        <Button variant='primary' onClick={() => setModalShow(true)}>
           DETAILS
         </Button>
-
         <this.heroModal
           show={modalShow}
           onHide={() => setModalShow(false)}
+          myHero={myHero}
         />
       </ButtonToolbar>
     );
-  }
-
+  };
 
   renderSearchHeroes = () => {
     const { heroes, isSearchable, loading } = this.state;
     if (loading) {
       return (
         <div>
-          <h6>loading</h6>
+          <h2>LOADING</h2>
         </div>
       );
     }
@@ -126,11 +135,20 @@ class Search extends React.Component {
                   return (
                     <div key={result.id}>
                       <Col>
-                        <Card className="heroesCards">
+                        <Card className='heroesCards'>
                           <Card.Body>
-                            <Card.Img variant="top" href="#" src={`${result.thumbnail.path}.${result.thumbnail.extension}`} className="thumbnail" />
-                            <Card.Title><h2>{result.name}</h2></Card.Title>
+                            <Card.Img
+                              variant='top'
+                              src={`${result.thumbnail.path}.${result.thumbnail.extension}`}
+                              className='thumbnail'
+                            />
+                            <Card.Title>
+                              <h2>{result.name}</h2>
+                            </Card.Title>
                           </Card.Body>
+                          <Card.Footer>
+                            <this.detailsButton myHero={result} />
+                          </Card.Footer>
                         </Card>
                       </Col>
                     </div>
@@ -143,14 +161,16 @@ class Search extends React.Component {
       } else {
         return (
           <div>
-            <h6>No results</h6>
+            <h2>SORRY THERE'S NO RESULTS</h2>
+            <img src={Deadpool} alt='' className='noResultImg' />
           </div>
         );
       }
     } else {
       return (
         <div>
-          <h6>Home page</h6>
+          <h2 className='homePageTitle'>HOME PAGE</h2>
+          <img src={Marvel} alt='' className='homePageImg' />
         </div>
       );
     }

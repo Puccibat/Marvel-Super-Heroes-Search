@@ -12,6 +12,7 @@
 
 .container .title {
   color: white;
+  font-size: 70px;
 }
 
 .button {
@@ -38,4 +39,16 @@ input {
   font-family: Marvel;
   font-size: 30px;
   text-transform: uppercase;
+}
+
+.noResultImg {
+  width: 100%;
+}
+
+.homePageImg {
+  width: 100%;
+}
+
+.homePageTitle {
+  color: white;
 }
