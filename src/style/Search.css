@@ -1,0 +1,50 @@
+@font-face {
+  src: url(./Marvel-Regular.ttf);
+  font-family: Marvel;
+}
+
+input {
+  font-family: Marvel;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.container {
+  font-family: Marvel;
+  font-size: 30px;
+  color: black;
+  padding-top: 25px;
+}
+
+.container .search-label {
+  margin-top: 15px;
+}
+
+.container .appTitle {
+  color: white;
+  font-size: 70px;
+}
+
+.title {
+  color: white;
+}
+
+.heroesCards {
+  text-transform: uppercase;
+  width: 12rem;
+  max-height: 20rem;
+  min-height: 20rem;
+  margin-bottom: 20px;
+}
+
+.heroesCards h2 {
+  font-size: 20px;
+}
+
+.noResultImg {
+  width: 100%;
+}
+
+.homePageImg {
+  width: 100%;
+}
