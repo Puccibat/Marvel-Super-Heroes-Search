@@ -78,7 +78,7 @@ class Search extends React.Component {
   };
 
   heroModal = props => {
-    const { myHero } = this.props;
+    const { myhero } = props;
     return (
       <Modal
         {...props}
@@ -88,19 +88,18 @@ class Search extends React.Component {
       >
         <Modal.Header closeButton>
           <Modal.Title id='contained-modal-title-vcenter'>
-            {myHero.name}
+            {myhero.name}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Heroes' description</p>
+          <p>{myhero.description}</p>
         </Modal.Body>
       </Modal>
     );
   };
 
-  detailsButton = props => {
+  detailsButton = myhero => {
     const [modalShow, setModalShow] = React.useState(false);
-    const { myHero } = this.props;
     return (
       <ButtonToolbar>
         <Button variant='primary' onClick={() => setModalShow(true)}>
@@ -109,7 +108,7 @@ class Search extends React.Component {
         <this.heroModal
           show={modalShow}
           onHide={() => setModalShow(false)}
-          myHero={myHero}
+          {...myhero}
         />
       </ButtonToolbar>
     );
@@ -147,7 +146,7 @@ class Search extends React.Component {
                             </Card.Title>
                           </Card.Body>
                           <Card.Footer>
-                            <this.detailsButton myHero={result} />
+                            <this.detailsButton myhero={result} />
                           </Card.Footer>
                         </Card>
                       </Col>
