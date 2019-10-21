@@ -3,11 +3,21 @@
   font-family: Marvel;
 }
 
+input {
+  font-family: Marvel;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
 .container {
   font-family: Marvel;
   font-size: 30px;
   color: black;
   padding-top: 25px;
+}
+
+.container .search-label {
+  margin-top: 15px;
 }
 
 .container .appTitle {
@@ -17,10 +27,6 @@
 
 .title {
   color: white;
-}
-
-.button {
-  align-items: center;
 }
 
 .heroesCards {
@@ -33,16 +39,6 @@
 
 .heroesCards h2 {
   font-size: 20px;
-}
-
-.container .search-label {
-  margin-top: 15px;
-}
-
-input {
-  font-family: Marvel;
-  font-size: 30px;
-  text-transform: uppercase;
 }
 
 .noResultImg {
