@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import '../style/Search.css';
 import {
   Card,
   Modal,
@@ -180,7 +179,6 @@ class Search extends React.Component {
     const { query } = this.state;
     return (
       <div className='container'>
-        <h1 className='appTitle'>MARVEL SUPER-HEROES SEARCH</h1>
         <label className='search-label'>
           <input
             type='text'
