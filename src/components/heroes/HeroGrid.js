@@ -5,11 +5,13 @@ const HeroGrid = ({heroes, isLoading}) => {
   return isLoading ? (
   <h1>Loading...</h1>
   ) : (
-  <section className='cards'>
-    {heroes.map((hero) => (
-      <HeroItem key={hero.id} item={hero}></HeroItem>
-    ))}
-  </section>
+    <section className='cards'>
+    {heroes.map((hero) => {
+        return(
+            <HeroItem key={hero.id} hero={hero}></HeroItem>
+        )
+        })}
+</section>
   )
 }
 

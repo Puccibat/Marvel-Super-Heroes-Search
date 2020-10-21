@@ -13,10 +13,9 @@ function App() {
 
   useEffect(() => {
     const fetchHeroes = async () => {
-      const result = await axios(`https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=${apiKey}`)
+      const result = await axios(`https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=${apiKey}&limit=100`)
       //const result = await axios(`https://www.breakingbadapi.com/api/characters`)
 
-      console.log(result.data)
       setHeroes(result.data.data.results)
       setIsLoading(false)  
     }
