@@ -67,7 +67,6 @@ input {
   width: 100%;
 }
 
-/* 
 * {
   box-sizing: border-box;
   margin: 0;
@@ -179,7 +178,7 @@ input[type='text'] {
 }
 
 .card-back {
-  background-color: #333;
+  background-color: rgb(237, 29, 36);
   color: white;
   padding: 20px;
   transform: rotateY(180deg);
@@ -200,4 +199,4 @@ input[type='text'] {
   .cards {
     grid-template-columns: 1fr;
   }
-} */
+}
