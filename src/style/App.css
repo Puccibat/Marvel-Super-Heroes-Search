@@ -3,17 +3,6 @@
   background-color: rgb(237, 29, 36);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 @font-face {
   src: url(./Marvel-Regular.ttf);
   font-family: Marvel;
@@ -23,17 +12,6 @@ input {
   font-family: Marvel;
   font-size: 30px;
   text-transform: uppercase;
-}
-
-.container {
-  font-family: Marvel;
-  font-size: 30px;
-  color: black;
-  padding-top: 25px;
-}
-
-.container .search-label {
-  margin-top: 15px;
 }
 
 .appTitle {
@@ -47,24 +25,12 @@ input {
   color: white;
 }
 
-.heroesCards {
-  text-transform: uppercase;
-  width: 12rem;
-  max-height: 20rem;
-  min-height: 20rem;
-  margin-bottom: 20px;
-}
-
-.heroesCards h2 {
-  font-size: 20px;
-}
-
 .noResultImg {
   width: 100%;
 }
 
 .homePageImg {
-  width: 100%;
+  width: 70%;
 }
 
 * {
@@ -91,25 +57,6 @@ a {
   padding: 0 20px;
 }
 
-.btn {
-  display: inline-block;
-  color: #fff;
-  background-color: #3fb573;
-  font-size: 1em;
-  text-align: center;
-  padding: 10px 15px;
-  border: 0;
-  margin: 10px 0;
-}
-
-header {
-  height: 200px;
-}
-
-header img {
-  width: 200px;
-}
-
 .center {
   display: flex;
   align-items: center;
@@ -128,12 +75,16 @@ input[type='text'] {
   border-radius: 5px;
   width: 60%;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }
 
 .card {
